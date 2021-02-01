@@ -22,7 +22,7 @@ public class Candidato  implements Serializable{
 	private String imagemCandidato;	
 	
 	@ManyToOne
-	@JoinColumn(name = "cardo_id")
+	@JoinColumn(name = "cargo_id")
 	private Cargo cargo;
 	
 	public Candidato() {
