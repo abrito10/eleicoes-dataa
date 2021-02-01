@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,13 +19,16 @@ public class Candidato  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nomeCandidato;
-	private String imagemCandidato;
-	private String cargo;
+	private String imagemCandidato;	
+	
+	@ManyToOne
+	@JoinColumn(name = "cardo_id")
+	private Cargo cargo;
 	
 	public Candidato() {
 	}
 
-	public Candidato(Long id, String nomeCandidato, String imagemCandidato, String cargo) {
+	public Candidato(Long id, String nomeCandidato, String imagemCandidato, Cargo cargo) {
 		super();
 		this.id = id;
 		this.nomeCandidato = nomeCandidato;
@@ -54,15 +59,15 @@ public class Candidato  implements Serializable{
 	public void setImagemCandidato(String imagemCandidato) {
 		this.imagemCandidato = imagemCandidato;
 	}
-
-	public String getCargo() {
+	
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

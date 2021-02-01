@@ -31,7 +31,14 @@ public class UsuarioController {
 		Usuario obj = service.find(id);	
 		return ResponseEntity.ok().body(obj);	
 	}
+
+	@RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
+	public ResponseEntity<Usuario> findByEmail(@PathVariable String email) throws ObjectNotFoundException {
+		Usuario obj = service.findByEmail(email);	
+		return ResponseEntity.ok().body(obj);	
+	}
 	
+
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(method = RequestMethod.GET)
 	//@GetMapping

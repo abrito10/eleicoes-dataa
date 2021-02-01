@@ -53,15 +53,12 @@ public class UsuarioService {
 	}
 
 	public Usuario findByEmail(String email) throws ObjectNotFoundException {
-		UserSS user = UserService.authenticated();
-		if (user == null || !user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
-			throw new AuthorizationException("Acesso negado!!!");
-		}
+		System.out.println("busca por email");
 
 		Usuario obj = repository.findByEmail(email);
 		if (obj == null) {
 			throw new ObjectNotFoundException(
-					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Usuario.class.getName());
+					"Email não encontrado! : " + email + ", Tipo: " + Usuario.class.getName());
 		}
 		return obj;
 	}
