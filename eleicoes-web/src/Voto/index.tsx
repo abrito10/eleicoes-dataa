@@ -17,6 +17,7 @@ function Voto(){
     const totalVotos= selectedCandidados.reduce((sum, item) => {
         return sum + 1;
     },0);
+    
     useEffect(() => {
         fecthCandidatos()
         .then(response => setCandidatos(response.data))

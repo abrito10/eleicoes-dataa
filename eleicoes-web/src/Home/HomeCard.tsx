@@ -25,10 +25,6 @@ function HomeCard(){
                 <Link to="/votos" className= "home-card-title">Votos</Link>
             </div>
 
-            <div className="main-home">
-                <Link to="/home" className= "home-card-title">Home</Link>
-            </div>
-
         </div>
 
         </>

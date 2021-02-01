@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ConfirmarVoto } from "./Voto/types";
+import { UsuarioLogin } from "./Login/types";
 
 const API_URL = 'http://localhost:8080';
 
@@ -11,6 +12,13 @@ export function saveVotos(voto: ConfirmarVoto){
     return axios.post(`${API_URL}/votos`,voto);
 }
 
+//export function fecthLogin(nomeUsuario:string){
+//    return axios(`${API_URL}/usuario/email/${nomeUsuario}`)
+//}
+
 export function fecthLogin(){
-    return axios(`${API_URL}/login`)
+    return axios(`${API_URL}/usuario/email/abrito10@gmail.com`)
 }
+
+
+

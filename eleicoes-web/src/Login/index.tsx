@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import TextField from '@material-ui/core/TextField';
@@ -8,6 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import './style.css';
+import { initialState, State, UsuarioLogin } from './types';
+import { fecthLogin } from '../api';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,29 +33,6 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-
-
-//state type
-
-type State = {
-  username: string
-  password:  string
-  isButtonDisabled: boolean
-  helperText: string
-  isError: boolean
-  redirect:boolean
-};
-
-const initialState:State = {
-  username: '',
-  password: '',
-  isButtonDisabled: true,
-  helperText: '',
-  isError: false,
-  redirect: false   
-
-};
-
 
 type Action = { type: 'setUsername', payload: string }
   | { type: 'setPassword', payload: string }
@@ -100,9 +79,18 @@ const reducer = (state: State, action: Action): State => {
   }
 }
 
-const Login = () => {
+function Login() {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin[]>([]);
+
+  
+  useEffect(() => {
+    fecthLogin()
+    .then(response => setUsuarioLogin(response.data))
+    .catch(error => console.log(error))
+  },[]);
 
   useEffect(() => {
     if (state.username.trim() && state.password.trim()) {
@@ -120,7 +108,8 @@ const Login = () => {
 
   const handleLogin = () => {
     console.log(state.username);
-    console.log(state.password)
+    console.log(state.password);
+
     if (state.username === 'abrito10@gmail.com' && state.password === '12345') {
       dispatch({
         type: 'loginSuccess',
@@ -155,6 +144,7 @@ const Login = () => {
         payload: event.target.value
       });
     }
+
   return (
     <form className="login-container" noValidate autoComplete="off">
       <Card className="login-card">
