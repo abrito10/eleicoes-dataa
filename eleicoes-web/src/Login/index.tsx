@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import TextField from '@material-ui/core/TextField';
@@ -8,8 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import './style.css';
-import { initialState, State, UsuarioLogin } from './types';
-import { fecthLogin } from '../api';
+import { initialState, State } from './types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -82,15 +81,6 @@ const reducer = (state: State, action: Action): State => {
 function Login() {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin[]>([]);
-
-  
-  useEffect(() => {
-    fecthLogin()
-    .then(response => setUsuarioLogin(response.data))
-    .catch(error => console.log(error))
-  },[]);
 
   useEffect(() => {
     if (state.username.trim() && state.password.trim()) {

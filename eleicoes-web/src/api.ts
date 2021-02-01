@@ -1,6 +1,5 @@
 import axios from "axios";
 import { ConfirmarVoto } from "./Voto/types";
-import { UsuarioLogin } from "./Login/types";
 
 const API_URL = 'http://localhost:8080';
 
