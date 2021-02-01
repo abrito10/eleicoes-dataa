@@ -1,13 +1,15 @@
 package com.abrito10.projetoTesteEleicoes.entidades;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "tb_eleicao")
@@ -17,14 +19,19 @@ public class Eleicao  implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nomeEleicao;
-	private Instant dataInicio;
-	private Instant dataTermino;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date dataInicio;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date dataTermino;
 	
 	public Eleicao() {
 	}
 
-	public Eleicao(Long id, String nomeEleicao, Instant dataInicio, Instant dataTermino) {
+	public Eleicao(Long id, String nomeEleicao, Date dataInicio, Date dataTermino) {
 		super();
 		this.id = id;
 		this.nomeEleicao = nomeEleicao;
@@ -48,19 +55,19 @@ public class Eleicao  implements Serializable{
 		this.nomeEleicao = nomeEleicao;
 	}
 
-	public Instant getDataInicio() {
+	public Date getDataInicio() {
 		return dataInicio;
 	}
 
-	public void setDataInicio(Instant dataInicio) {
+	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 
-	public Instant getDataTermino() {
+	public Date getDataTermino() {
 		return dataTermino;
 	}
 
-	public void setDataTermino(Instant dataTermino) {
+	public void setDataTermino(Date dataTermino) {
 		this.dataTermino = dataTermino;
 	}
 

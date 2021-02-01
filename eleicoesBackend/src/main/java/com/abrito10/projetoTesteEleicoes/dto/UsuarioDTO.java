@@ -21,16 +21,20 @@ public class UsuarioDTO implements Serializable{
 	private String cpf;
 
  	@NotEmpty(message = "Campo de Preenchimento Obrigatório")
+ 	private String email;
+	
+ 	@NotEmpty(message = "Campo de Preenchimento Obrigatório")
  	private String senha;
 	
 
 	public UsuarioDTO() {	
 	}
 
-	public UsuarioDTO(Integer id, String nomeUsuario, String cpf, String senha) {
+	public UsuarioDTO(Integer id, String nomeUsuario, String cpf, String email, String senha) {
 		this.id = id;
 		this.nomeUsuario = nomeUsuario;
 		this.cpf = cpf;
+		this.email = email;
 		this.senha = senha;
 	}
 
@@ -38,6 +42,7 @@ public class UsuarioDTO implements Serializable{
 		this.id = entity.getId();
 		this.nomeUsuario = entity.getNomeUsuario();
 		this.cpf = entity.getCpf();
+		this.email = entity.getEmail();
 		this.senha = entity.getSenha();
 	}
 
@@ -63,6 +68,14 @@ public class UsuarioDTO implements Serializable{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {

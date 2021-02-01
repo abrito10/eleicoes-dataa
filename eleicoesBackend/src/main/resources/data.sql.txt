@@ -4,11 +4,19 @@ INSERT INTO tb_eleicao(nome_eleicao, data_inicio, data_termino) VALUES('Eleicao 
 INSERT INTO tb_cargo(nome_cargo) VALUES('PRESIDENTE');
 INSERT INTO tb_cargo(nome_cargo) VALUES('GOVERNADOR');
 
-INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES ('Governador', 'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/pizza_bacon.jpg', 'Adilson');
-INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES ('Presidente', 'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/pizza_bacon.jpg', 'Adilson');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Deputado',    'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/pizza_bacon.jpg', 'Adilson');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Vereado',     'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/pizza_moda.jpg', 'Roberto');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Senador',     'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/pizza_portuguesa.jpg', 'Thays');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Governador',  'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/risoto_carne.jpg', 'Julia');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Presidente',  'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/risoto_funghi.jpg', 'Raul');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Aspone',      'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/macarrao_espaguete.jpg', 'Osmar');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Secretario',  'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/macarrao_fusili.jpg', 'Renato');
+INSERT INTO tb_candidato(cargo, imagem_Candidato, nome_candidato) VALUES('Vidente',     'https://raw.githubusercontent.com/devsuperior/sds2/master/assets/macarrao_penne.jpg', 'Cida');
 
-INSERT INTO tb_usuario(nome_usuario, cpf, senha) VALUES('Usuario 1', '12345678909','1234');
-INSERT INTO tb_usuario(nome_usuario, cpf, senha) VALUES('Usuario 2', '12345678909','1239');
+
+
+INSERT INTO tb_usuario(nome_usuario, cpf, email, senha) VALUES('Usuario 1', '12345678909','a@a.com','1234');
+INSERT INTO tb_usuario(nome_usuario, cpf, email, senha) VALUES('Usuario 2', '12345678909','b@b.com','1239');
 
 INSERT INTO perfis(usuario_id,perfis) VALUES(1, 1);
 INSERT INTO perfis(usuario_id,perfis) VALUES(1, 2);
@@ -19,4 +27,7 @@ INSERT INTO tb_voto(cpf,protocolo,voto) VALUES('12345678909', '1234-1234-1234-1'
 INSERT INTO tb_voto(cpf,protocolo,voto) VALUES('02345678909', '1234-1234-1234-1', 1 );
 INSERT INTO tb_voto(cpf,protocolo,voto) VALUES('32345678909', '1234-1234-1234-1', 1 );
 
+INSERT INTO TB_VOTO_CANDIDATO(VOTO_ID,CANDIDATO_ID) VALUES(1,1 );
+INSERT INTO TB_VOTO_CANDIDATO(VOTO_ID,CANDIDATO_ID) VALUES(2,1 );
+INSERT INTO TB_VOTO_CANDIDATO(VOTO_ID,CANDIDATO_ID) VALUES(2,2 );
 

@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
 import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,8 +26,15 @@ public class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nomeUsuario;
+	
+	@Column(unique = true) // garantir unicidade no banco de dados
 	private String cpf;
+	
+	@Column(unique = true) // garantir unicidade no banco de dados
+	private String email;
+	
 	@JsonIgnore
 	private String senha;
 	
@@ -37,17 +44,18 @@ public class Usuario implements Serializable {
 	private Set<Integer> perfis =new HashSet<>();
 
 	public Usuario() {	
-		addPerfil(Perfil.VOTANTE); // todo usuario é um votante
+		addPerfil(Perfil.ELEITOR); // todo usuario é um votante
 	}
 
 
-	public Usuario(Integer id, String nomeUsuario, String cpf, String senha) {
+	public Usuario(Integer id, String nomeUsuario, String cpf, String email, String senha) {
 		super();
 		this.id = id;
 		this.nomeUsuario = nomeUsuario;
 		this.cpf = cpf;
+		this.email = email;
 		this.senha = senha;
- 		addPerfil(Perfil.VOTANTE); // todo usuario é um votante
+ 		addPerfil(Perfil.ELEITOR); // todo usuario é um votante
 	}
 
 
@@ -73,6 +81,14 @@ public class Usuario implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {

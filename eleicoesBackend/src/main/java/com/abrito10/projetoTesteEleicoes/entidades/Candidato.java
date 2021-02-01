@@ -1,17 +1,12 @@
 package com.abrito10.projetoTesteEleicoes.entidades;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_candidato")
@@ -24,10 +19,6 @@ public class Candidato  implements Serializable{
 	private String nomeCandidato;
 	private String imagemCandidato;
 	private String cargo;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "candidato")
-	private List<Voto> votos = new ArrayList<>();
 	
 	public Candidato() {
 	}
@@ -70,18 +61,6 @@ public class Candidato  implements Serializable{
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
-	}
-
-	public Double getTotalVotos() {
-		double sum = 0.00;
-		for(Voto v: votos) {
-			sum += 1;
-		}
-		return sum;
-	}
-	
-	public List<Voto> getVotos() {
-		return votos;
 	}
 	
 	@Override

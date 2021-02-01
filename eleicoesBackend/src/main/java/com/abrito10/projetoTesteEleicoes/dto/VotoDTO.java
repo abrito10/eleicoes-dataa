@@ -1,6 +1,9 @@
 package com.abrito10.projetoTesteEleicoes.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.abrito10.projetoTesteEleicoes.entidades.Voto;
 
@@ -11,6 +14,8 @@ public class VotoDTO implements Serializable{
 	private String cpf;
 	private Long voto;
 	private String protocolo;
+	
+	private List<CandidatoDTO> candidatos = new ArrayList<>();
 	
 	public VotoDTO() {		
 	}
@@ -27,6 +32,8 @@ public class VotoDTO implements Serializable{
 		cpf = entity.getCpf();
 		voto = entity.getVoto();
 		protocolo = entity.getProtocolo();
+		
+		candidatos = entity.getCandidatos().stream().map(x -> new CandidatoDTO(x)).collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -61,5 +68,8 @@ public class VotoDTO implements Serializable{
 		this.protocolo = protocolo;
 	}
 	
-	
+	public List<CandidatoDTO> getCandidatos() {
+		return candidatos;
+	}
+
 }

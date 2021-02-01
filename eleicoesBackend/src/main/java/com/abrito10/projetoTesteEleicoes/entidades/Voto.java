@@ -1,14 +1,19 @@
 package com.abrito10.projetoTesteEleicoes.entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.abrito10.projetoTesteEleicoes.utils.GeraProtocolo;
 
 @Entity
 @Table(name = "tb_voto")
@@ -21,20 +26,23 @@ public class Voto  implements Serializable{
 	private String cpf;
 	private Long voto;
 	private String protocolo;
+
+	@ManyToMany
+	@JoinTable(name = "tb_voto_candidato",
+	joinColumns = @JoinColumn(name = "voto_id"),
+	inverseJoinColumns = @JoinColumn(name = "candidato_id"))
+	private Set<Candidato> candidatos = new HashSet<>();
 	
-	@ManyToOne
-	@JoinColumn(name = "candidato_id")
-	private Candidato candidato;
 	
 	public Voto() {
 	}
-
+  
 	public Voto(Long id, String cpf, Long voto, String protocolo) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
 		this.voto = voto;
-		this.protocolo = protocolo;
+		this.protocolo = GeraProtocolo.protocolo();
 	}
 
 	public Long getid() {
@@ -68,14 +76,9 @@ public class Voto  implements Serializable{
 	public void setProtocolo(String protocolo) {
 		this.protocolo = protocolo;
 	}
-
 	
-	public Candidato getCandidato() {
-		return candidato;
-	}
-
-	public void setCandidato(Candidato candidato) {
-		this.candidato = candidato;
+	public Set<Candidato> getCandidatos() {
+		return candidatos;
 	}
 
 	@Override

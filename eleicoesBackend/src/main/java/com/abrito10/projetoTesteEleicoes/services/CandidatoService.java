@@ -20,9 +20,9 @@ public class CandidatoService {
 	@Transactional(readOnly = true) // para evitar lock de banco
 	public List<CandidatoDTO> findAll() {
 		List<Candidato> list = repository.findAllByOrderByNomeCandidatoAsc();
-		//.findOrderWithProducts();
-		return list.stream().map(x -> new CandidatoDTO(x)).collect(Collectors.toList());
-		
+		return list.stream().map(x -> new CandidatoDTO(x)).collect(Collectors.toList());		
 	}
+
 	
+
 }

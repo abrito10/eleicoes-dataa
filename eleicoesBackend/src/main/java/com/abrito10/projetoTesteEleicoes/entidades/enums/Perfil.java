@@ -3,7 +3,7 @@ package com.abrito10.projetoTesteEleicoes.entidades.enums;
 public enum Perfil {
 
 	ADMIN(1,"ROLE_ADMIN"),
-	VOTANTE(2,"ROLE_VOTANTE");
+	ELEITOR(2,"ROLE_ELEITOR");
 
 
 	private int cod;

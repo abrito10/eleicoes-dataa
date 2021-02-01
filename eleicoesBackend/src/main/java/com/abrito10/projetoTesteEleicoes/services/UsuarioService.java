@@ -1,6 +1,7 @@
 package com.abrito10.projetoTesteEleicoes.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.abrito10.projetoTesteEleicoes.dto.UsuarioDTO;
 import com.abrito10.projetoTesteEleicoes.entidades.Usuario;
+import com.abrito10.projetoTesteEleicoes.entidades.enums.Perfil;
 import com.abrito10.projetoTesteEleicoes.repositories.UsuarioRepository;
+import com.abrito10.projetoTesteEleicoes.security.UserSS;
+import com.abrito10.projetoTesteEleicoes.services.exception.AuthorizationException;
+
+import javassist.tools.rmi.ObjectNotFoundException;
+
 
 @Service
 public class UsuarioService {
@@ -30,8 +37,32 @@ public class UsuarioService {
 	
 	@Transactional
 	public UsuarioDTO insert(UsuarioDTO dto) {
-		Usuario usuario =  new Usuario(dto.getId(), dto.getNomeUsuario(),dto.getCpf(), pe.encode(dto.getSenha()));	
+		Usuario usuario =  new Usuario(dto.getId(), dto.getNomeUsuario(),dto.getCpf(), dto.getEmail(), pe.encode(dto.getSenha()));	
 		usuario = repository.save(usuario);
 		return new UsuarioDTO(usuario);
+	}
+	
+	public Usuario find(Integer id) throws ObjectNotFoundException {
+		UserSS user = UserService.authenticated();
+		if(user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso Negado!!!");
+		}
+		Optional<Usuario> obj = repository.findById(id); 
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Usuario.class.getName()));
+	}
+
+	public Usuario findByEmail(String email) throws ObjectNotFoundException {
+		UserSS user = UserService.authenticated();
+		if (user == null || !user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
+			throw new AuthorizationException("Acesso negado!!!");
+		}
+
+		Usuario obj = repository.findByEmail(email);
+		if (obj == null) {
+			throw new ObjectNotFoundException(
+					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Usuario.class.getName());
+		}
+		return obj;
 	}
 }

@@ -1,7 +1,7 @@
 package com.abrito10.projetoTesteEleicoes.dto;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.util.Date;
 
 import com.abrito10.projetoTesteEleicoes.entidades.Eleicao;
 
@@ -12,14 +12,14 @@ public class EleicaoDTO implements Serializable{
 	
 	private String nomeEleicao;
  	
- 	private Instant dataInicio;
+ 	private Date dataInicio;
 
-	private Instant dataTermino;
+	private Date dataTermino;
 	
 	public EleicaoDTO() {
 	}
 
-	public EleicaoDTO(Long id, String nomeEleicao, Instant dataInicio, Instant dataTermino) {
+	public EleicaoDTO(Long id, String nomeEleicao, Date dataInicio, Date dataTermino) {
 		this.id = id;
 		this.nomeEleicao = nomeEleicao;
 		this.dataInicio = dataInicio;
@@ -49,19 +49,19 @@ public class EleicaoDTO implements Serializable{
 		this.nomeEleicao = nomeEleicao;
 	}
 
-	public Instant getDataInicio() {
+	public Date getDataInicio() {
 		return dataInicio;
 	}
 
-	public void setDataInicio(Instant dataInicio) {
+	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 
-	public Instant getDataTermino() {
+	public Date getDataTermino() {
 		return dataTermino;
 	}
 
-	public void setDataTermino(Instant dataTermino) {
+	public void setDataTermino(Date dataTermino) {
 		this.dataTermino = dataTermino;
 	}
 	
