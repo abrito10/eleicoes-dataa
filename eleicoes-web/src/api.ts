@@ -1,7 +1,8 @@
 import axios from "axios";
 import { ConfirmarVoto } from "./Voto/types";
 
-const API_URL = 'http://localhost:8080';
+//const API_URL = 'http://localhost:8080';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export function fecthCandidatos(){
     return axios(`${API_URL}/candidatos`)
