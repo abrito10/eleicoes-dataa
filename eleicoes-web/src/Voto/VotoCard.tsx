@@ -14,17 +14,17 @@ function VotoCard({ candidato, onSelectCandidato, isSelected}: Props){
         onClick={() => onSelectCandidato(candidato)}
         >
             <h3 className = "voto-card-title">
-             Candidato: {candidato.nomeCandidato}
+             {candidato.nomeCandidato}
             </h3>
             <img 
                 src={candidato.imagemCandidato} 
                 className="voto-card-image"
                 alt={candidato.nomeCandidato}/>
             <h3 className = "voto-card-numero-candidato">
-              Numero: {candidato.id}
+              {candidato.id}
             </h3>
             <div className = "voto-card-description">
-              Cargo: {candidato.cargo}
+              {candidato.cargo}
             </div>
         </div>
 
