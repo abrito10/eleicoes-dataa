@@ -32,7 +32,6 @@ public class VotoDTO implements Serializable{
 		cpf = entity.getCpf();
 		voto = entity.getVoto();
 		protocolo = entity.getProtocolo();
-		
 		candidatos = entity.getCandidatos().stream().map(x -> new CandidatoDTO(x)).collect(Collectors.toList());
 	}
 
