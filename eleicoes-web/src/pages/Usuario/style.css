@@ -1,0 +1,13 @@
+.eleicao-container {
+    padding-top: 100px;
+    height: calc(100vh - 254px);
+}
+
+.eleicao-container h1 {
+    margin: 0;
+}
+
+.eleicao-content {
+    display: flex;
+    justify-content: center;
+}

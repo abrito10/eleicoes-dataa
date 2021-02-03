@@ -1,0 +1,58 @@
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #da5c5c;
+    color: #fdfdfd;
+}
+
+.login-Field {
+    border: nome;
+    background: rgba(0, 0, 0, .25);
+    color: #fdfdfd;
+    margin-top: 15px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: 30%;
+}
+
+.login-Field:focus {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .5);
+    outline: none;
+}
+
+.login-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.login-loginBtn {
+    margin-top: 3px;
+    flex-grow: 1;
+    size: large;
+}
+
+.login-header {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    background-color: #da5c5c;
+    color: #fff;
+}
+
+.login-summary-make-login {
+    width: 220px;
+    height: 45px;
+    background: #da5c5c;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+}

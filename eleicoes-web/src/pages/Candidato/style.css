@@ -1,0 +1,13 @@
+.candidato-container {
+    padding-top: 100px;
+    height: calc(100vh - 254px);
+}
+
+.candidato-container h1 {
+    margin: 0;
+}
+
+.candidato-content {
+    display: flex;
+    justify-content: center;
+}
