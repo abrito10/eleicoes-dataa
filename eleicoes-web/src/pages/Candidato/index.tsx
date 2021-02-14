@@ -83,10 +83,10 @@ const Candidato: React.FC = () => (
           
           <Field component="select" id="cargo" name="cargo" type="text" multiple={false} placeholder="Entre com o cargo">
           <option value="">Selecione um Cargo</option>
-          <option value="1">New York</option>
-            <option value="2">San Francisco</option>
-            <option value="3">Chicago</option>
-            <option value="4">Other</option>
+          <option value="1">Presidente</option>
+            <option value="2">Governador</option>
+            <option value="3">Deputado</option>
+            <option value="4">Senador</option>
           </Field>
           <ErrorMessage name="cargo" />
 
