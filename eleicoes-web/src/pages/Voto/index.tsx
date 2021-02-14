@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import ConfirmarVoto from './confirmarVoto';
 import { checkIsSelected } from './helpers';
 import PassosVotacao from './PassosVotacao';
-import { Candidato } from './types';
+import { CandidatoVoto } from './types';
 import VotoList from './VotoList';
 import './style.css';
 import { useAuth } from '../../contexts/auth';
@@ -17,8 +17,8 @@ const Voto: React.FC = () => {
   console.log(signed);
 
  // function Voto(){
-    const [candidados, setCandidatos] = useState<Candidato[]>([]);
-    const [selectedCandidados, setSelectedCandidatos] = useState<Candidato[]>([]);
+    const [candidados, setCandidatos] = useState<CandidatoVoto[]>([]);
+    const [selectedCandidados, setSelectedCandidatos] = useState<CandidatoVoto[]>([]);
     const totalVotos= selectedCandidados.reduce((sum, item) => {
         return sum + 1;
     },0);
@@ -29,12 +29,10 @@ const Voto: React.FC = () => {
         .catch(error => console.log(error))
     },[]);
 
-    const handleSelectCandidato = (candidato: Candidato) => {
+    const handleSelectCandidato = (candidato: CandidatoVoto) => {
         const isAlreadySelected = checkIsSelected(selectedCandidados,candidato);
-        //const isAlreadySelected = selectedCandidados.some(item => item.id === candidato.id);
       
         if (isAlreadySelected) {
-            //const selected = selectedCandidatos.filter(item => item.id !== candidato.id);
             const selected = selectedCandidados.filter(item => item.id !== candidato.id);
             setSelectedCandidatos(selected);
         } else {
@@ -45,13 +43,21 @@ const Voto: React.FC = () => {
       const handleSubmit = () => {
         const candidatosIds = selectedCandidados.map(({ id }) => ({ id }));
         const voto = {
-          candidatos: candidatosIds
+          candidatoVoto: candidatosIds
         }
       
-
         saveVotos(voto)
         .then((response) => {
-          toast.error(`Protocolo ${response.data.protocolo}`);
+          toast.info(`Protocolo:  ${response.data.protocolo}`,{
+            position: "top-center",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+          }
+          );
           setSelectedCandidatos([]);
         })
           .catch(() => {

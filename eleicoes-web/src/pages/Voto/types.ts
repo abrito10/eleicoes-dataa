@@ -1,4 +1,4 @@
-export type Candidato = {
+export type CandidatoVoto = {
     id: number;
     nomeCandidato: string;
     imagemCandidato: string;
@@ -10,5 +10,5 @@ type CandidatoID = {
 }
 
 export type ConfirmarVoto = {
-    candidatos: CandidatoID[];
+    candidatoVoto: CandidatoID[];
 }

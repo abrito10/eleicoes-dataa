@@ -1,11 +1,11 @@
 import { checkIsSelected } from "./helpers";
-import { Candidato } from "./types";
+import { CandidatoVoto } from "./types";
 import VotoCard from "./VotoCard";
 
 type Props = {
-    candidatos: Candidato[];
-    selectedCandidatos: Candidato[];
-    onSelectCandidato: (candidato: Candidato) => void;
+    candidatos: CandidatoVoto[];
+    selectedCandidatos: CandidatoVoto[];
+    onSelectCandidato: (candidato: CandidatoVoto) => void;
 
 }
 

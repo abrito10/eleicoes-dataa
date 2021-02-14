@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Login from '../pages/Login';
+//import Login from '../pages/Login/newindex';
+import Login from '../pages/Login/index';
 
 const SignRoutes: React.FC = () => {
   return (

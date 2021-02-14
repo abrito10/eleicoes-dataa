@@ -9,10 +9,10 @@ const Login: React.FC = () => {
 
   async function handleLogin() {
     await Login({
-      email: 'abrito10@gmail.com',
+    email: 'abrito10@gmail.com',
       password: '123456',
     });
-  }
+    }
 
   return (
     <>

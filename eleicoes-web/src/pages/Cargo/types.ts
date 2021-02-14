@@ -1,4 +1,3 @@
-export type Cargo = {
-    id: number;
+export type Cargos = {
     nomeCargo: string;
 }

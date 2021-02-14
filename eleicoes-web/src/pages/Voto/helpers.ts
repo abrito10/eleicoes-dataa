@@ -1,5 +1,5 @@
-import { Candidato } from "./types";
+import { CandidatoVoto } from "./types";
 
-export function checkIsSelected(selectedCandidatos: Candidato[], candidato: Candidato){
+export function checkIsSelected(selectedCandidatos: CandidatoVoto[], candidato: CandidatoVoto){
     return selectedCandidatos.some(item => item.id === candidato.id);
 }

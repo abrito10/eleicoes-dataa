@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div>
-        <button className="home-btn-logout" onClick={handleLogout}>Logout</button>
+        <button className="home-btn-logout" onClick={handleLogout}>Sair</button>
       </div>
     </>
   );

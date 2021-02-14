@@ -9,6 +9,7 @@ interface AuthContextData {
   Logout(): void;
 }
 
+
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
@@ -50,3 +51,4 @@ export function useAuth() {
 
   return context;
 }
+

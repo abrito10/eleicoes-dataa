@@ -1,9 +1,9 @@
 
-import { Candidato } from "./types";
+import { CandidatoVoto } from "./types";
 
 type Props = {
-    candidato: Candidato
-    onSelectCandidato: (candidato: Candidato) => void;
+    candidato: CandidatoVoto
+    onSelectCandidato: (candidato: CandidatoVoto) => void;
     isSelected: boolean;
 }
 

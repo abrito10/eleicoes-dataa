@@ -7,7 +7,7 @@ import Eleicao from '../pages/Eleicao';
 import Home from '../pages/Home';
 import Usuario from '../pages/Usuario';
 import Voto from '../pages/Voto';
-
+//import Teste from '../pages/Teste'
 const OtherRoutes: React.FC = () => {
  return (
    <BrowserRouter>
@@ -25,10 +25,9 @@ const OtherRoutes: React.FC = () => {
       <Route exact path="/votos" component={Voto} />
 
 
-
-
     </Switch>
    </BrowserRouter>
+      //<Route exact path="/teste" component={Teste} />
  );
 };
 

@@ -27,6 +27,9 @@ function HomeCard() {
             </div>
 
         </>
+                //<div className="main-home">
+                //    <Link to="/teste" className="home-card-title">Teste</Link>
+                //</div>
     )
 }
 
