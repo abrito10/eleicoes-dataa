@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +38,7 @@ public class UsuarioController {
 		return ResponseEntity.ok().body(obj);	
 	}
 	
-
-	@PreAuthorize("hasAnyRole('ADMIN')")
+	//@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(method = RequestMethod.GET)
 	//@GetMapping
 	public ResponseEntity<List<UsuarioDTO>> findAll(){
@@ -47,7 +46,7 @@ public class UsuarioController {
 		return ResponseEntity.ok().body(lista);
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN')")
+	//@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(method = RequestMethod.POST)
 	//@PostMapping
 	public ResponseEntity<UsuarioDTO> insert(@RequestBody UsuarioDTO dto){
@@ -56,4 +55,5 @@ public class UsuarioController {
 				.buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);				
 	}
+	
 }

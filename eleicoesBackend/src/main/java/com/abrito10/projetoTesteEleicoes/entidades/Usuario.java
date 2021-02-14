@@ -29,10 +29,10 @@ public class Usuario implements Serializable {
 	
 	private String nomeUsuario;
 	
-	@Column(unique = true) // garantir unicidade no banco de dados
+	//@Column(unique = true) // garantir unicidade no banco de dados
 	private String cpf;
 	
-	@Column(unique = true) // garantir unicidade no banco de dados
+	//@Column(unique = true) // garantir unicidade no banco de dados
 	private String email;
 	
 	@JsonIgnore

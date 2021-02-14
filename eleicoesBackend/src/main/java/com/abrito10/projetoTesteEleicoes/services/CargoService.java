@@ -17,10 +17,9 @@ public class CargoService {
 	@Autowired
 	private CargoRepository repository;
 	
-	@Transactional(readOnly = true) // para evitar lock de banco
+	@Transactional(readOnly = true)
 	public List<CargoDTO> findAll() {
 		List<Cargo> list = repository.findAllByOrderByNomeCargoAsc();
-		//.findOrderWithProducts();
 		return list.stream().map(x -> new CargoDTO(x)).collect(Collectors.toList());		
 	}
 	

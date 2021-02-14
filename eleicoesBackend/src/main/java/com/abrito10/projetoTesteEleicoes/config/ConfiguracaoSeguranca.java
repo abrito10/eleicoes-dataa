@@ -41,19 +41,23 @@ public class ConfiguracaoSeguranca extends WebSecurityConfigurerAdapter {
 	private static final String[] PUBLIC_MATCHERS = {
 			"/h2-console/**",
 			"/votos",
-			"/usuarios"
-
+			"/usuarios",
+			"/cargos",
+			"/candidatos",
+			"/eleicoes"
 			};
 	
 	//tem permissao para consultar
 	private static final String[] PUBLIC_MATCHERS_GET = {
-			"/candidatos",
-			"/usuarios/**"
+			"/candidatos"
 
 		};
 	//tem permissao para inserir
 	private static final String[] PUBLIC_MATCHERS_POST = {
-			"/auth/forgot/**"
+			"/auth/forgot/**",
+			"/cargos"
+			
+
 		};
 
 	@Override

@@ -3,6 +3,7 @@ package com.abrito10.projetoTesteEleicoes.dto;
 import java.io.Serializable;
 
 import com.abrito10.projetoTesteEleicoes.entidades.Candidato;
+import com.abrito10.projetoTesteEleicoes.entidades.Cargo;
 
 public class CandidatoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -13,12 +14,12 @@ public class CandidatoDTO implements Serializable{
  	
  	private String imagemCandidato;
  	
-	private String cargo;
+	private Cargo cargo;
 	
 	public CandidatoDTO() {		
 	}
 
-	public CandidatoDTO(Long id, String nomeCandidato, String imagemCandidato, String cargo) {
+	public CandidatoDTO(Long id, String nomeCandidato, String imagemCandidato, Cargo cargo) {
 		this.id = id;
 		this.nomeCandidato = nomeCandidato;
 		this.imagemCandidato = imagemCandidato;		
@@ -29,7 +30,7 @@ public class CandidatoDTO implements Serializable{
 		id = entity.getId();
 		nomeCandidato = entity.getNomeCandidato();
 		imagemCandidato = entity.getImagemCandidato();
-		cargo = entity.getCargo().getNomeCargo();
+		cargo = entity.getCargo();
 	}
 
 	public Long getId() {
@@ -56,11 +57,11 @@ public class CandidatoDTO implements Serializable{
 		this.imagemCandidato = imagemCandidato;
 	}
 
-	public String getCargo() {
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
 	

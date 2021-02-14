@@ -24,5 +24,11 @@ public class CandidatoService {
 	}
 
 	
+	@Transactional
+	public CandidatoDTO insert(CandidatoDTO dto) {
+		Candidato candidato =  new Candidato(null, dto.getNomeCandidato(),dto.getImagemCandidato(), dto.getCargo());			
+		candidato = repository.save(candidato);
+		return new CandidatoDTO(candidato);
+	}
 
 }
