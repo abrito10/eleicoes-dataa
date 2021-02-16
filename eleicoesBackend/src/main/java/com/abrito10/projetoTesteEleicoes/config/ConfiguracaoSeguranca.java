@@ -54,7 +54,7 @@ public class ConfiguracaoSeguranca extends WebSecurityConfigurerAdapter {
 		};
 	//tem permissao para inserir
 	private static final String[] PUBLIC_MATCHERS_POST = {
-//			"/auth/forgot/**",
+			"/auth/forgot/**",
 			
 
 		};
